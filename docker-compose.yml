@@ -12,6 +12,16 @@ services:
     networks:
       - internal
 
+database:
+    image: mariadb:latest
+    environment:
+      - MYSQL_ROOT_PASSWORD=030119006
+      - MYSQL_USER=YAM428
+      - MYSQL_PASSWORD=030119006
+      - MYSQL_DATABASE=final
+    ports:
+      - "3306:3306"
+
   drupal:
     image: drupal:8.7.8-fpm-alpine
     container_name: drupal
@@ -48,7 +58,7 @@ services:
     volumes:
       - certbot-etc:/etc/letsencrypt
       - drupal-data:/var/www/html
-    command: certonly --webroot --webroot-path=/var/www/html --email sammy@your_domain --agree-tos --no-eff-email --staging -d your_domain -d www.your_domain
+    command: certonly --webroot --webroot-path=/var/www/html --email sammyalibugra007 --agree-tos --no-eff-email --staging -d alibugar007 -d www.alibugra007
 
 networks:
   external:
